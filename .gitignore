@@ -38,6 +38,8 @@ testem.log
 .DS_Store
 Thumbs.db
 
-/storage.rules.ts
-/firebase.json
-/src/environments
+*/storage.rules
+storage.rules
+firebase.json
+*/environments
+*/environments/*
