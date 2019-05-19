@@ -1,0 +1,20 @@
+<div fxLayout="column" class="dialog">
+  <h1 mat-dialog-title> Subir fotos para la propiedad REF: {{data.reference}} </h1>
+  <mat-dialog-content fxLayout="column" fxLayoutGap="15px">
+    <h5>Imagen principal</h5>
+    <input type="file" (change)="setMainImage($event)" [disabled]="!buttonChooseMainActivated">
+    <div fxLayout="row" fxLayoutGap="10px">
+      <button style="width:180px" mat-raised-button color="accent" [disabled]="!activated" (click)="uploadQuestion()">Upload</button>
+      <div fxLayout="row" fxLayoutGap="5px" *ngIf="(uploadPercentage$ | async) as percentage" class="vertical-centered">
+        <span>Progreso</span>
+        <mat-progress-bar color="accent" style="width:200px" mode="determinate" [value]="percentage"></mat-progress-bar>
+        <span>{{percentage / 100 | percent }} </span>
+        <span *ngIf="percentage === 100"><i class="material-icons" color="#4caf50" style="color:#4caf50">done</i></span>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions fxLayoutAlign="end end">
+    <button mat-raised-button color="warn" [mat-dialog-close]="true">Close</button>
+  </mat-dialog-actions>
+
+</div>

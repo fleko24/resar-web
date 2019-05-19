@@ -1,0 +1,15 @@
+.page-wrap {
+  min-height: 100vh !important;
+  /* equal to footer height */
+	margin-bottom: -142px;
+  position: relative;
+}
+
+.site-footer, .page-wrap:after {
+  /* .push must be the same height as footer */
+	height: 142px;
+}
+.site-footer {
+  margin-top: 80px;
+  background: #263238;
+}

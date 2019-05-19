@@ -1,0 +1,18 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$resar-app-primary: mat-palette($mat-blue-grey, 900);
+$resar-app-accent:  mat-palette($mat-deep-orange, 500);
+$resar-app-green: mat-palette($mat-green, 500);
+
+// The warn palette is optional (defaults to red).
+$resar-app-warn:    mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$resar-app-theme: mat-light-theme($resar-app-primary, $resar-app-accent, $resar-app-warn);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($resar-app-theme);

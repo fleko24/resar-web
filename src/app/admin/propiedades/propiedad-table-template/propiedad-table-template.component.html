@@ -1,0 +1,106 @@
+<div fxLayout="column" fxLayoutGap="15px" class="template-container">
+  <div fxLayout="row" fxLayoutGap="40px">
+    <div>
+      <mat-card style="width:200px">
+        <mat-card-content fxLayout="column">
+          <button mat-icon-button color="primary">
+            <mat-icon style="margin-right:5px">visibility</mat-icon> Ver
+          </button>
+          <button mat-icon-button color="primary" (click)="navigateToEditar(propiedad.id)">
+            <mat-icon style="margin-right:5px">edit</mat-icon> Editar
+          </button>
+          <button mat-icon-button color="primary">
+            <mat-icon style="margin-right:5px">delete</mat-icon> Eliminar
+          </button>
+          <button mat-icon-button color="primary" (click)="openUploadImgDialog(propiedad.id)">
+            <mat-icon style="margin-right:5px">cloud_upload</mat-icon> Subir imagenes
+          </button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="img">
+      <img src="{{propiedad.main_foto}}" width="200px" height="100%" alt="">
+    </div>
+    <div class="features-container" fxLayout="column" fxLayoutGap="5px">
+      <div class="feature vertical-centered" fxLayout="row" fxLayoutAlign="left" title="Metros cuadrados">
+        <mat-icon color="accent" style="margin: 0px 5px">zoom_out_map</mat-icon>
+        <span > {{propiedad.mts2}} Mts²</span>
+      </div>
+      <div class="feature vertical-centered" fxLayout="row" fxLayoutAlign="left" title="Distancia al mar">
+        <mat-icon color="accent" style="margin: 0px 5px">pool</mat-icon>
+        <span> {{propiedad.distance_to_sea}} mts</span>
+      </div>
+      <div class="feature vertical-centered" fxLayout="row" fxLayoutAlign="left" title="Distancia al centro">
+        <mat-icon color="accent" style="margin: 0px 5px">location_city</mat-icon>
+        <span> {{propiedad.distance_to_center}} mts</span>
+      </div>
+      <div class="feature vertical-centered" fxLayout="row" fxLayoutAlign="left" title="Capacidad">
+        <mat-icon color="accent" style="margin: 0px 5px">people</mat-icon>
+        <span> {{propiedad.max_personas}} personas</span>
+      </div>
+    </div>
+    <div class="features-container" fxLayout="column" fxLayoutGap="5px">
+      <div class="feature vertical-centered" fxLayout="row" fxLayoutAlign="left" title="habitaciones">
+        <mat-icon color="accent" style="margin: 0px 5px">local_hotel</mat-icon>
+        <span > {{propiedad.bedrooms}} habitaciones</span>
+      </div>
+      <div class="feature vertical-centered" fxLayout="row" fxLayoutAlign="left" title="baños">
+        <span class="iconify" data-icon="mdi-toilet" data-inline="false" style="color: #ff5722; margin-right: 10px;" data-width="25" data-height="25"></span>
+        <span> {{propiedad.bathrooms}} baños</span>
+      </div>
+      <div class="feature vertical-centered" fxLayout="row" fxLayoutAlign="left" title="garages">
+        <mat-icon color="accent" style="margin: 0px 5px">drive_eta</mat-icon>
+        <span> {{propiedad.garages}} </span>
+      </div>
+      <div class="feature vertical-centered" fxLayout="row" fxLayoutAlign="left" title="patio">
+        <mat-icon color="accent" style="margin: 0px 5px">nature_people</mat-icon>
+        <span *ngIf="propiedad.patio ; else noPatio" [ngStyle]="{ 'color': '#4caf50'}">con patio</span>
+      </div>
+      <ng-template #noPatio><span style="color:#f44336"> sin patio </span></ng-template>
+    </div>
+    <div class="features-container" fxLayout="column" fxLayoutGap="5px">
+      <!-- PARRILLA -->
+      <div class="feature vertical-centered" fxLayout="row" fxLayoutAlign="left" title="parrilla">
+        <mat-icon color="accent" style="margin: 0px 5px">straighten</mat-icon>
+        <span *ngIf="propiedad.parrilla ; else noParrilla" [ngStyle]="{ 'color': '#4caf50'}">con parrilla</span>
+      </div>
+      <ng-template #noParrilla><span style="color:#f44336"> sin parrilla </span></ng-template>
+      <!-- WIFI -->
+      <div class="feature vertical-centered" fxLayout="row" fxLayoutAlign="left" title="wifi">
+        <mat-icon color="accent" style="margin: 0px 5px">wifi</mat-icon>
+        <span *ngIf="propiedad.wifi ; else noWifi" [ngStyle]="{ 'color': '#4caf50'}">con wifi</span>
+      </div>
+      <ng-template #noWifi><span style="color:#f44336"> sin wifi </span></ng-template>
+      <!-- TV -->
+      <div class="feature vertical-centered" fxLayout="row" fxLayoutAlign="left" title="Tv">
+        <mat-icon color="accent" style="margin: 0px 5px">tv</mat-icon>
+        <span *ngIf="propiedad.tv ; else noTv" [ngStyle]="{ 'color': '#4caf50'}">con TV</span>
+      </div>
+      <ng-template #noTv><span style="color:#f44336"> sin TV </span></ng-template>
+      <!-- TV CABLE -->
+      <div class="feature vertical-centered" fxLayout="row" fxLayoutAlign="left" title="TV Cable">
+        <mat-icon color="accent" style="margin: 0px 5px">cast</mat-icon>
+        <span *ngIf="propiedad.tvcable ; else noTvcable" [ngStyle]="{ 'color': '#4caf50'}">con cable</span>
+      </div>
+      <ng-template #noTvcable><span style="color:#f44336"> sin cable</span></ng-template>
+      <!-- TV CABLE -->
+      <div class="feature vertical-centered" fxLayout="row" fxLayoutAlign="left" title="vista al mar">
+        <mat-icon color="accent" style="margin: 0px 5px">waves</mat-icon>
+        <span *ngIf="propiedad.ocean_view ; else noOceanView" [ngStyle]="{ 'color': '#4caf50'}">con vista al mar</span>
+      </div>
+      <ng-template #noOceanView><span style="color:#f44336"> sin vista al mar</span></ng-template>
+    </div>
+    <div class="features-container" fxLayout="column" fxLayoutGap="5px">
+      <!-- OPORTUNIDAD -->
+      <div class="feature vertical-centered" fxLayout="row" fxLayoutAlign="left" title="oportunidad">
+        <mat-icon color="accent" style="margin: 0px 5px">stars</mat-icon>
+        <span *ngIf="propiedad.oportunidad ; else noEsOportunidad" [ngStyle]="{ 'color': '#4caf50'}"> Oportunidad </span>
+      </div>
+      <ng-template #noEsOportunidad><span style="color:#f44336"> No es oportunidad </span></ng-template>
+      <div fxLayout="column" style="padding:10px" fxLayoutGap="10px">
+        <b>Descripción:</b>
+        <p>{{propiedad.descripcion}}</p>
+      </div>
+    </div>
+  </div>
+</div>

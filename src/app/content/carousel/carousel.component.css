@@ -1,0 +1,7 @@
+.my-img {
+  object-fit: contain;
+}
+
+.carousel-item {
+  height: 600px !important;
+}

@@ -1,0 +1,196 @@
+<section class="margenes">
+    <form #propiedad="ngForm" (ngSubmit)="onSubmit(propiedad)">
+      <div class="margenes" fxLayout="row" fxLayoutGap="100px" >
+        <!-- COLUMNA 1: GENERAL -->
+        <div fxLayout="column" fxLayoutGap="10px">
+          <h5 class="orange" style="padding-bottom: 20px;"><b> Información General</b></h5>
+
+          <h6><b>Tipo de Propiedad</b></h6>
+          <mat-radio-group>
+            <mat-radio-button checked value="casa" #radioButtonCasa>Casa</mat-radio-button>
+            <mat-radio-button value="departamento" #radioButtonDepto>Departamento</mat-radio-button>
+            <mat-radio-button value="chalet" #radioButtonChalet>Chalet</mat-radio-button>
+            <mat-radio-button value="lote" #radioButtonLote>Lote</mat-radio-button>
+          </mat-radio-group>
+          <h6><b>Tipo de Operación</b></h6>
+          <mat-radio-group>
+            <mat-radio-button checked value="venta" #radioButtonVenta>Venta</mat-radio-button>
+            <mat-radio-button value="alquiler" #radioButtonAlquiler>Alquiler</mat-radio-button>
+          </mat-radio-group>
+          <mat-form-field>
+            <input matInput placeholder="Número de referencia" ngModel name="reference" required>
+            <mat-error>Referencia is required</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Titulo" ngModel name="titulo" required>
+            <mat-error>Titulo is required</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Dirección" ngModel name="direccion" required>
+            <mat-error>Direccion is required</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <div fxLayout="row" fxLayoutGap="5px">
+              <input matInput placeholder="Distancia al mar (en metros)" type="number" ngModel name="distance_to_sea" ng-pattern="/^[0-9]*$/">
+              <mat-icon matSuffix color="accent" style="margin: 0px 5px">pool</mat-icon>
+            </div>
+          </mat-form-field>
+          <mat-form-field>
+          <div fxLayout="row" fxLayoutGap="5px">
+            <input matInput placeholder="Distancia al centro (en metros)" type="number" ngModel name="distance_to_center" ng-pattern="/^[0-9]*$/">
+            <mat-icon matSuffix color="accent" style="margin: 0px 5px">location_city</mat-icon>
+          </div>
+        </mat-form-field>
+
+
+        </div>
+        <!-- COLUMNA 2: AMBIENTES -->
+        <div fxLayout="column" fxLayoutGap="10px">
+          <h5 class="orange"><b>Ambientes</b></h5>
+          <mat-form-field>
+            <div fxLayout="row" fxLayoutGap="5px">
+              <input matInput placeholder="Máximo de personas" type="number" ngModel name="max_personas" ng-pattern="/^[0-9]*$/" required>
+              <mat-icon matSuffix color="accent" style="margin: 0px 5px">people</mat-icon>
+            </div>
+            <mat-error>Max. Personas is required</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <div fxLayout="row" fxLayoutGap="5px">
+              <input matInput placeholder="Metros cuadrados" type="number" ngModel name="mts2" ng-pattern="/^[0-9]*$/">
+              <mat-icon matSuffix color="accent" style="margin: 0px 5px">zoom_out_map</mat-icon>
+            </div>
+          </mat-form-field>
+          <mat-form-field>
+              <div fxLayout="row" fxLayoutGap="5px">
+                <input matInput placeholder="Dormitorios" type="number" ngModel name="bedrooms" ng-pattern="/^[0-9]*$/" required>
+                <mat-icon matSuffix color="accent" style="margin: 0px 5px">local_hotel</mat-icon>
+              </div>
+            <mat-error>Dormitorios is required</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <div fxLayout="row" fxLayoutGap="5px">
+              <input matInput placeholder="Baños" type="number" ngModel name="bathrooms" ng-pattern="/^[0-9]*$/" required>
+              <span class="iconify" data-icon="mdi-toilet" data-inline="false" style="color: #ff5722;" data-width="30" data-height="30"></span>
+            </div>
+          <mat-error>Baños is required</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <div fxLayout="row" fxLayoutGap="5px">
+              <input matInput placeholder="Garages" type="number" ngModel name="garages" ng-pattern="/^[0-9]*$/" required>
+              <mat-icon matSuffix color="accent" style="margin: 0px 5px">drive_eta</mat-icon>
+            </div>
+            <mat-error>Garages is required</mat-error>
+          </mat-form-field>
+          <mat-checkbox ngModel name="patio">
+            <div class="vertical-centered">
+              <mat-icon color="accent" style="margin: 0px 5px">nature_people</mat-icon>
+              <span>Patio</span>
+            </div>
+          </mat-checkbox>
+        </div>
+        <div fxLayout="column" fxLayoutGap="20px">
+          <div fxLayout="row" fxLayoutGap="100px">
+            <!-- COLUMNA 3: OTROS -->
+            <div fxLayout="column" fxLayoutGap="10px">
+              <h5 class="orange" style="padding-bottom:20px"><b>Otros</b></h5>
+              <mat-checkbox ngModel name="parrilla">
+                <div class="vertical-centered">
+                  <mat-icon color="accent" style="margin: 0px 5px">straighten</mat-icon>
+                  <span>Parrilla</span>
+                </div>
+              </mat-checkbox>
+              <mat-checkbox ngModel name="wifi">
+                <div class="vertical-centered">
+                  <mat-icon color="accent" style="margin: 0px 5px">wifi</mat-icon>
+                  <span>WiFi</span>
+                </div>
+              </mat-checkbox>
+              <mat-checkbox ngModel name="tv">
+                <div class="vertical-centered">
+                  <mat-icon color="accent" style="margin: 0px 5px">tv</mat-icon>
+                  <span>TV</span>
+                </div>
+              </mat-checkbox>
+              <mat-checkbox ngModel name="tvcable">
+                <div class="vertical-centered">
+                  <mat-icon color="accent" style="margin: 0px 5px">cast</mat-icon>
+                  <span>TV - Cable</span>
+                </div>
+              </mat-checkbox>
+              <mat-checkbox ngModel name="ocean_view">
+                  <div class="vertical-centered">
+                    <mat-icon color="accent" style="margin: 0px 5px">waves</mat-icon>
+                    <span>Vista al mar</span>
+                  </div>
+                </mat-checkbox>
+            </div>
+            <!-- COLUMNA 4: SETTINGS -->
+            <div fxLayout="column" fxLayoutGap="10px">
+              <h5 class="orange" style="padding-bottom:20px"><b>Settings</b></h5>
+              <mat-checkbox ngModel name="oportunidad">
+                <div class="vertical-centered">
+                  <mat-icon color="accent" style="margin: 0px 5px">stars</mat-icon>
+                  <span>Oportunidad</span>
+                </div>
+              </mat-checkbox>
+              <mat-checkbox ngModel name="mostrar">
+                <div class="vertical-centered">
+                  <mat-icon color="accent" style="margin: 0px 5px">remove_red_eye</mat-icon>
+                  <span>Mostrar propiedad</span>
+                </div>
+              </mat-checkbox>
+            </div>
+          </div>
+          <mat-form-field>
+            <textarea matInput
+                      placeholder="Descripción"
+                      style="height:120px"
+                      ngModel
+                      name="descripcion"
+                      ></textarea>
+          </mat-form-field>
+          <div class="spinner" style="width:180px" fxLayoutAlign="center center">
+              <mat-spinner [diameter]="30" *ngIf="isLoading"></mat-spinner>
+          </div>
+          <button style="width:180px"
+                  mat-raised-button
+                  color="accent"
+                  type="submit"
+                  [disabled]="propiedad.invalid"
+                  *ngIf="!isLoading"
+                  >
+                  <mat-icon style="margin: 0px 5px">save</mat-icon>Save</button>
+        </div>
+      </div>
+
+    </form>
+</section>
+
+
+
+
+  <!--
+
+      <mat-form-field>
+        <input matInput placeholder="# Order" type="number" ngModel name="order" ng-pattern="/^[0-9]*$/" required>
+        <mat-error>Order is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-select placeholder="Shape" ngModel name="shape" required>
+          <mat-option value="Ring">Ring</mat-option>
+          <mat-option value="Round">Round</mat-option>
+          <mat-option value="Full">Full</mat-option>
+        </mat-select>
+        <mat-error>Shape is required</mat-error>
+      </mat-form-field>
+    </div>
+
+    <mat-checkbox ngModel name="production" class="space-bottom-20">On Production</mat-checkbox>
+
+    <div class="spinner" style="width:180px" fxLayoutAlign="center center">
+        <mat-spinner [diameter]="30" *ngIf="isLoading"></mat-spinner>
+    </div>
+    <button mat-raised-button color="accent" type="submit" style="width:180px" [disabled]="f.invalid" *ngIf="!isLoading">Submit</button>
+  </form>
+-->

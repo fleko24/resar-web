@@ -1,0 +1,15 @@
+.titulo {
+  font-weight: bold;
+  color: #ff5722;
+}
+
+.titulo-propiedad {
+  font-weight: 500;
+  color: white;
+  font-size: 1.5em;
+}
+
+.titulo-tipo-propiedad {
+  color: #50b848;
+  font-size: 1.2em;
+}
